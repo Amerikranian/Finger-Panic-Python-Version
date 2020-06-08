@@ -6,6 +6,7 @@
 STATE_EXITING = -1
 STATE_MAIN_MENU = 0
 STATE_PLAYING = 1
+STATE_STATS_MENU = 2
 
 #Sound constants. Prepend goes before the sound, append goes after the filename
 SOUND_PREPEND = "sounds/"

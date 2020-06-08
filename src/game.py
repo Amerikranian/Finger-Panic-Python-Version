@@ -21,7 +21,7 @@ class Game(state.State):
 		#Used when player finds a crackerjack
 		self.found_sound = "found"
 		self.game_timer = clock.Clock()
-		self.game_time = gmc.GAME_TOTAL_TIME
+		self.game_time = 0
 		self.grid = grid.Grid(gmc.GRID_MAXIMUM_X, gmc.GRID_MAXIMUM_Y)
 		#Used when the game becomes faster
 		self.level_sound = "nextlevel"
@@ -29,8 +29,15 @@ class Game(state.State):
 		self.music_slot = None
 		self.player = player.Player()
 
+	def zero_out(self):
+		"""Resets the game"""
+		self.game_time = gmc.GAME_TOTAL_TIME
+		#Other reset logic goes here
+
 	def enter(self):
 		"""Begins game execution"""
+		#Reset the game... just in case we played already
+		self.zero_out()
 		self.music_slot = glb.play_sound(self.music_path, 0, True)
 		#Since we don't have a crackerjack on the grid, we'll spawn one as the game starts
 		#The grid doesn't do this on it's own because if one wishes to add different modes of gameplay, having a crackerjack on the board at the start may not be what one desires
@@ -79,6 +86,13 @@ class Game(state.State):
 		#Todo: Expand game leveling conditions.
 		#Perhaps make the board expand?
 
+	def get_final_stats(self):
+		return {
+			"Found crackerjacks": self.player.found_crackerjacks,
+			"Final score": self.player.score,
+			"Level achieved": self.player.level,
+		}
+
 	def update(self, events, delta):
 		"""Processes user input and continues the gameplay
 			Parameters:
@@ -89,10 +103,7 @@ class Game(state.State):
 		self.game_timer.tick(delta)
 		#Todo: Move into separate function should logic for the game become more complex
 		if self.game_timer.elapsed >= self.game_time:
-			#Todo: Add a way to alert the user of their performance besides printing it
-			#Todo: Return the user to the main menu from the alert
-			print("Crackerjacks found: %d.\nPlayer score: %d.\nPlayer level: %d.\nTime window for finding crackerjack: %.1f seconds." % (self.player.found_crackerjacks, self.player.score, self.player.level, self.game_time))
-			self.on_change(gmc.STATE_EXITING)
+			self.on_change(self.get_final_stats())
 		for event in events:
 			if event.type == lucia.KEYDOWN:
 				if event.key == lucia.K_UP:
