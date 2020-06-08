@@ -8,3 +8,5 @@ What if starting past a certain point caused crackerjacks to award items to the 
 Right now the player can mash their arrow keys without any concern for where they are on the board. What if every time they hit a wall they lost points? What if, should they hit a wall once too many times, the clock would skip forward by a second or two?
 Consider implementing a saving system which keeps track of the player's total stats.
 Consider going through the original game and adding things I left out.
+Right now the menus don't really speak anything. Consider changing this to alert the user that a menu has been shown. It is up to you how you do this, an opening sound, a prompt,... up to you.
+Consider letting the main menu music fade out instead of just cutting off. Diddo for the game background.
