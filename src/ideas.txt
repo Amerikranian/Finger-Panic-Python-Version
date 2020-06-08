@@ -1,1 +1,10 @@
-In progress
+This file holds suggestions for someone looking to expand the game. It is my hope that this will surve as an inspiration and a learning tool for someone who is just starting out.
+Look through the sounds folder. Some files are not being used. Consider implementing the code necessary to make them be included.
+Look through the code, in particular, lines starting with #Todo: I left these as a note for myself (and now you) to try and improve or add to whatever the comment points to.
+Leveling is pretty boring right now... how might you add more interest to the game? Here are some hints to get you started.
+The board stays a certain size. Fortunately, the grid class is not limitted by this. Consider allowing it to expand in a certain direction during the game. How might you make it more wider? Longer? How might you make it expand in both directions at once?
+The player gets 10 points per crackerjack. What if we decide to test his or her timing skills? The closer the clock is to ending the game, the more points he or she receives when they finally find it. We can even go the other way, awarding more points based on how close the clock is to 0. How do you think this will influence the gameplay?
+What if starting past a certain point caused crackerjacks to award items to the player as they are being found? The items would have say, 20% chance of being triggered and can range from making the board smaller, to dialing back the clock, to awarding player points, or to being something fake.
+Right now the player can mash their arrow keys without any concern for where they are on the board. What if every time they hit a wall they lost points? What if, should they hit a wall once too many times, the clock would skip forward by a second or two?
+Consider implementing a saving system which keeps track of the player's total stats.
+Consider going through the original game and adding things I left out.
