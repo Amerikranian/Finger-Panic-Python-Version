@@ -7,8 +7,8 @@ Not all of the game is quite implemented. Some of it was left out on purpose. Th
 ### No Executable
 The game was meant more as a practice project. Should you choose to distribute this, I will not stop you, but as of right now you are on your own in regards to actual compilation process. If you aren't sure how to compile a python file into an executable, check out the section of my guide titled "Compiling code" found [here](https://forum.audiogames.net/topic/30141/python-guide-part-3-menus-timers-and-more/). If you still have questions about pyinstaller, chances are the official [Pyinstaller page](http://www.pyinstaller.org/) can help you.
 ## What Is Missing?
-3. No cheatcodes. I considered the implementation and decided to leave it as an exercise.
-4. Pausing the game. Again, left as an exercise, much simpler than cheats if I do say so myself.
+1. No cheatcodes. I considered the implementation and decided to leave it as an exercise.
+2. Pausing the game. Again, left as an exercise, much simpler than cheats if I do say so myself.
 ## Can I Contribute?
 Yes and no. While I will take contributions, I will not take versions which add any features mentioned as being exercises. This is meant as a beginner project. I appreciate improvements to the code, but I will not accept polls which add features the beginners are supposed to try and do themselves
 ## I'm stuck on what to add to the game
