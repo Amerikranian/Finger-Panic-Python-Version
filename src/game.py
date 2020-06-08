@@ -21,8 +21,10 @@ class Game(state.State):
 		#Used when player finds a crackerjack
 		self.found_sound = "found"
 		self.game_timer = clock.Clock()
-		self.game_time = 0
+		self.game_time = gmc.GAME_TOTAL_TIME
 		self.grid = grid.Grid(gmc.GRID_MAXIMUM_X, gmc.GRID_MAXIMUM_Y)
+		#Used to determine if the game should reset itself
+		self.has_played = False
 		#Used when the game becomes faster
 		self.level_sound = "nextlevel"
 		self.music_path = "background"
@@ -31,8 +33,9 @@ class Game(state.State):
 
 	def enter(self):
 		"""Begins game execution"""
-		#Reset the game... just in case we played already
-		self.__init__()
+		if self.has_played:
+			self.__init__(self.on_change)
+		self.has_played = True
 		self.music_slot = glb.play_sound(self.music_path, 0, True)
 		#Since we don't have a crackerjack on the grid, we'll spawn one as the game starts
 		#The grid doesn't do this on it's own because if one wishes to add different modes of gameplay, having a crackerjack on the board at the start may not be what one desires
