@@ -29,15 +29,10 @@ class Game(state.State):
 		self.music_slot = None
 		self.player = player.Player()
 
-	def zero_out(self):
-		"""Resets the game"""
-		self.game_time = gmc.GAME_TOTAL_TIME
-		#Other reset logic goes here
-
 	def enter(self):
 		"""Begins game execution"""
 		#Reset the game... just in case we played already
-		self.zero_out()
+		self.__init__()
 		self.music_slot = glb.play_sound(self.music_path, 0, True)
 		#Since we don't have a crackerjack on the grid, we'll spawn one as the game starts
 		#The grid doesn't do this on it's own because if one wishes to add different modes of gameplay, having a crackerjack on the board at the start may not be what one desires
