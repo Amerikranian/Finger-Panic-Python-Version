@@ -2,6 +2,17 @@
 ## An Example Game Using Lucia.
 This is almost a direct conversion of a BGT game sharing the same name.
 The game in question can be found [here](https://github.com/stas-prze/masonopensrc/tree/master/finger%20panic%202.0/src)
+## Running Issues
+Please read this section if the game fails to run. Right now, the only major error, pasted below, pertains to accessible_output2.
+### Error text:
+AttributeError: module 'win32com.gen_py.F152C4EF-B92F-4139-A901-E8F1E28CC8E0x0x1x0' has no attribute 'CLSIDToClassMap'
+## Fixing Error Instructions
+1. Open your run dialogue (windows r)
+2. Type in 'appdata' without the quotation marks
+3. Select 'local'
+4. Select 'temp'
+5. Delete the 'gen_py' folder.
+That's it! You should be able to run the game now.
 ## Notes
 Not all of the game is quite implemented. Some of it was left out on purpose. The goal is to provide a beginner with a decent project to get started with, as open-source Python materials are sorely lacking in the blind community. It is my hope that by providing this template, those transitioning from other languages will have an easier time learning Python
 ### No Executable
